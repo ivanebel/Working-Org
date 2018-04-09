@@ -71,7 +71,7 @@
             // 
             this.picClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picClose.Image = ((System.Drawing.Image)(resources.GetObject("picClose.Image")));
-            this.picClose.Location = new System.Drawing.Point(9, 12);
+            this.picClose.Location = new System.Drawing.Point(157, 12);
             this.picClose.Name = "picClose";
             this.picClose.Size = new System.Drawing.Size(50, 50);
             this.picClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

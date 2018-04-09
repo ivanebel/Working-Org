@@ -119,6 +119,7 @@ namespace Working_Org
                 MenuPedidos.Instance.BringToFront();
             }
 
+
             ResetButtons();
             btnPedidos.BackColor = Color.FromArgb(25, 118, 210);
         }
