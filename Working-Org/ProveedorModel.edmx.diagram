@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0b8883e066db47798d4fe6860aa890a5" Name="Diagram1">
+        <EntityTypeShape EntityType="proveedorModel.Proveedor" Width="1.5" PointX="4.625" PointY="0.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="proveedorModel.Cliente" Width="1.5" PointX="6.375" PointY="0.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="proveedorModel.Lote" Width="1.5" PointX="2.25" PointY="2" IsExpanded="false" />
+        <EntityTypeShape EntityType="proveedorModel.MovimientoProducto" Width="1.5" PointX="2.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="proveedorModel.Pedido" Width="1.5" PointX="6.375" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="proveedorModel.PrecioProducto" Width="1.5" PointX="3.875" PointY="2" IsExpanded="false" />
+        <EntityTypeShape EntityType="proveedorModel.ProduccionDiaria" Width="1.5" PointX="0.5" PointY="2" IsExpanded="false" />
+        <EntityTypeShape EntityType="proveedorModel.Venta" Width="1.5" PointX="9.625" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="proveedorModel.Cheque" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="proveedorModel.Cobranza" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="proveedorModel.LineaCobranza" Width="1.5" PointX="4.75" PointY="4.75" />
+        <EntityTypeShape EntityType="proveedorModel.LineaVenta" Width="1.5" PointX="6.75" PointY="4.75" />
+        <EntityTypeShape EntityType="proveedorModel.ProductoProveedor" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="proveedorModel.DetalleListaFabricacion" Width="1.5" PointX="3.75" PointY="8.75" />
+        <EntityTypeShape EntityType="proveedorModel.Factura" Width="1.5" PointX="5.75" PointY="8.75" />
+        <EntityTypeShape EntityType="proveedorModel.LineaFactura" Width="1.5" PointX="7.75" PointY="8.75" />
+        <EntityTypeShape EntityType="proveedorModel.LineaOrdenDeCompra" Width="1.5" PointX="9.75" PointY="6.75" />
+        <EntityTypeShape EntityType="proveedorModel.ListaFabricacion" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="proveedorModel.OrdenDeCompra" Width="1.5" PointX="2.75" PointY="11.75" />
+        <EntityTypeShape EntityType="proveedorModel.Remito" Width="1.5" PointX="12.375" PointY="0.75" />
+        <EntityTypeShape EntityType="proveedorModel.LineaRemito" Width="1.5" PointX="10.375" PointY="10.75" />
+        <EntityTypeShape EntityType="proveedorModel.MovimientoProveedor" Width="1.5" PointX="12.375" PointY="4.75" />
+        <EntityTypeShape EntityType="proveedorModel.Retencion" Width="1.5" PointX="12.375" PointY="8.75" />
+        <EntityTypeShape EntityType="proveedorModel.MovimientoCliente" Width="1.5" PointX="12.375" PointY="12.75" />
+        <EntityTypeShape EntityType="proveedorModel.Tipos" Width="1.5" PointX="5.375" PointY="13.75" />
+        <EntityTypeShape EntityType="proveedorModel.LineaPedido" Width="1.5" PointX="7.375" PointY="13.75" />
+        <EntityTypeShape EntityType="proveedorModel.Producto" Width="1.5" PointX="9.375" PointY="13.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

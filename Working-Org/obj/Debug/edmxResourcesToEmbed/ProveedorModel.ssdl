@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="proveedorModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=&quot;C:\Users\Ivan\Google Drive\Working\db\working-base.db&quot;" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cheque">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="Numero" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Banco" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Tipo" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="FechaEmision" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="FechaCobro" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="IdCliente" Type="integer" Nullable="false" />
+    <Property Name="Monto" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Ubicacion" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Observaciones" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="CUIT" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="TipoCliente" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Telefono" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Observaciones" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cobranza">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="IdCliente" Type="integer" Nullable="false" />
+    <Property Name="TipoDocumento" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="NroDocumento" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Monto" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Fecha" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DetalleListaFabricacion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="IdListaFabricacion" Type="integer" Nullable="false" />
+    <Property Name="IdProducto" Type="integer" Nullable="false" />
+    <Property Name="Cantidad" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Error" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Observaciones" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Factura">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="CompraVenta" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="IdEmisor" Type="integer" Nullable="false" />
+    <Property Name="IdDestinatario" Type="integer" Nullable="false" />
+    <Property Name="FechaEmision" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="FechaVencimiento" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Numero" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="ImporteNeto" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="ImporteTotal" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Observaciones" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Iva" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LineaCobranza">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="IdCobranza" Type="integer" Nullable="false" />
+    <Property Name="TipoDocumento" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="NroDocumento" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Detalle" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Monto" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Iva" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="IvaTotal" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Total" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LineaFactura">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="IdFactura" Type="integer" Nullable="false" />
+    <Property Name="IdProducto" Type="integer" Nullable="false" />
+    <Property Name="Cantidad" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="PrecioUnitario" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Subtotal" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="AlicuotaIva" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Total" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Iva" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LineaOrdenDeCompra">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="IdOrden" Type="integer" Nullable="false" />
+    <Property Name="IdProducto" Type="integer" Nullable="false" />
+    <Property Name="CantidadPedida" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="CantidadEntregada" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Observaciones" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LineaPedido">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="IdPedido" Type="integer" Nullable="false" />
+    <Property Name="IdProducto" Type="integer" Nullable="false" />
+    <Property Name="Cantidad" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Pendiente" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Otro" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LineaRemito">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="IdRemito" Type="integer" Nullable="false" />
+    <Property Name="IdProducto" Type="integer" Nullable="false" />
+    <Property Name="Cantidad" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LineaVenta">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="IdVenta" Type="integer" Nullable="false" />
+    <Property Name="IdProducto" Type="integer" Nullable="false" />
+    <Property Name="Cantidad" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="PrecioUnitario" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Iva" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="MontoIva" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Subtotal" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ListaFabricacion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="IdProducto" Type="integer" Nullable="false" />
+    <Property Name="Fecha" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Observaciones" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="IdMateriaPrima" Type="integer" />
+  </EntityType>
+  <EntityType Name="Lote">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="IdProducto" Type="integer" Nullable="false" />
+    <Property Name="Fecha" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="FechaElaboracion" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="FechaVencimiento" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="NumeroLote" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Cantidad" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Observaciones" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MovimientoCliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="IdCliente" Type="integer" Nullable="false" />
+    <Property Name="CreditoDebito" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Fecha" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="TipoDocumento" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="NumDocumento" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Monto" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Observaciones" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MovimientoProducto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="IdProducto" Type="integer" Nullable="false" />
+    <Property Name="TipoMovimiento" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Cantidad" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Fecha" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Stock" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Observaciones" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MovimientoProveedor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="IdProveedor" Type="integer" Nullable="false" />
+    <Property Name="CreditoDebito" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Fecha" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="TipoDocumento" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="NumDocumento" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Monto" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Observaciones" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrdenDeCompra">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="IdProveedor" Type="integer" Nullable="false" />
+    <Property Name="IdPresupuesto" Type="integer" Nullable="false" />
+    <Property Name="FechaCreacion" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="FechaEntrega" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Observaciones" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pedido">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="IdCliente" Type="integer" Nullable="false" />
+    <Property Name="OC" Type="integer" Nullable="false" />
+    <Property Name="CD" Type="integer" Nullable="false" />
+    <Property Name="FechaEmision" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="FechaEntrega" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="HoraEntrega" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="MuelleEntrega" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Reprogramaciones" Type="integer" Nullable="false" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Observaciones" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Total" Type="decimal" Precision="53" Scale="0" />
+    <Property Name="Pendiente" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PrecioProducto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="IdProducto" Type="integer" Nullable="false" />
+    <Property Name="IdProveedor" Type="integer" Nullable="false" />
+    <Property Name="Fecha" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Precio" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Iva" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="PrecioTotal" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Observaciones" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProduccionDiaria">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="IdProducto" Type="integer" Nullable="false" />
+    <Property Name="FechaProduccion" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Cantidad" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="FechaElaboracion" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="FechaVencimiento" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="NumeroLote" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Observaciones" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Ubicacion" Type="nvarchar" MaxLength="2147483647" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="UnidadDeMedida" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="TipoProducto" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Ean13" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="VidaUtil" Type="integer" Nullable="false" />
+    <Property Name="PesoBruto" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="PesoNeto" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="UnidadesBulto" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="PesoBulto" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="StockMinimo" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="StockMaximo" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="StockOptimo" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductoProveedor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="IdProducto" Type="integer" Nullable="false" />
+    <Property Name="IdProveedor" Type="integer" Nullable="false" />
+    <Property Name="DemoraPromedio" Type="integer" Nullable="false" />
+    <Property Name="Observaciones" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Proveedor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="CUIT" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="TipoProveedor" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Telefono" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Observaciones" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Remito">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="EmisionRecepcion" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="IdEmisor" Type="integer" Nullable="false" />
+    <Property Name="IdDestinatario" Type="integer" Nullable="false" />
+    <Property Name="FechaEmision" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="FechaEntrega" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Numero" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Observaciones" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Retencion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="Tipo" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="NumDocumento" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Base" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Alicuota" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Total" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Fecha" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="IdCobranza" Type="integer" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tipos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="Clasificacion" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Detalle" Type="nvarchar" MaxLength="2147483647" />
+  </EntityType>
+  <EntityType Name="Venta">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="IdCliente" Type="integer" Nullable="false" />
+    <Property Name="Fecha" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Documento" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="DocumentoNro" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="IdPedido" Type="integer" Nullable="false" />
+    <Property Name="Monto" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="MontoTotal" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="2147483647" />
+  </EntityType>
+  <EntityContainer Name="proveedorModelStoreContainer">
+    <EntitySet Name="Cheque" EntityType="Self.Cheque" store:Type="Tables" />
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" store:Type="Tables" />
+    <EntitySet Name="Cobranza" EntityType="Self.Cobranza" store:Type="Tables" />
+    <EntitySet Name="DetalleListaFabricacion" EntityType="Self.DetalleListaFabricacion" store:Type="Tables" />
+    <EntitySet Name="Factura" EntityType="Self.Factura" store:Type="Tables" />
+    <EntitySet Name="LineaCobranza" EntityType="Self.LineaCobranza" store:Type="Tables" />
+    <EntitySet Name="LineaFactura" EntityType="Self.LineaFactura" store:Type="Tables" />
+    <EntitySet Name="LineaOrdenDeCompra" EntityType="Self.LineaOrdenDeCompra" store:Type="Tables" />
+    <EntitySet Name="LineaPedido" EntityType="Self.LineaPedido" store:Type="Tables" />
+    <EntitySet Name="LineaRemito" EntityType="Self.LineaRemito" store:Type="Tables" />
+    <EntitySet Name="LineaVenta" EntityType="Self.LineaVenta" store:Type="Tables" />
+    <EntitySet Name="ListaFabricacion" EntityType="Self.ListaFabricacion" store:Type="Tables" />
+    <EntitySet Name="Lote" EntityType="Self.Lote" store:Type="Tables" />
+    <EntitySet Name="MovimientoCliente" EntityType="Self.MovimientoCliente" store:Type="Tables" />
+    <EntitySet Name="MovimientoProducto" EntityType="Self.MovimientoProducto" store:Type="Tables" />
+    <EntitySet Name="MovimientoProveedor" EntityType="Self.MovimientoProveedor" store:Type="Tables" />
+    <EntitySet Name="OrdenDeCompra" EntityType="Self.OrdenDeCompra" store:Type="Tables" />
+    <EntitySet Name="Pedido" EntityType="Self.Pedido" store:Type="Tables" />
+    <EntitySet Name="PrecioProducto" EntityType="Self.PrecioProducto" store:Type="Tables" />
+    <EntitySet Name="ProduccionDiaria" EntityType="Self.ProduccionDiaria" store:Type="Tables" />
+    <EntitySet Name="Producto" EntityType="Self.Producto" store:Type="Tables" />
+    <EntitySet Name="ProductoProveedor" EntityType="Self.ProductoProveedor" store:Type="Tables" />
+    <EntitySet Name="Proveedor" EntityType="Self.Proveedor" store:Type="Tables" />
+    <EntitySet Name="Remito" EntityType="Self.Remito" store:Type="Tables" />
+    <EntitySet Name="Retencion" EntityType="Self.Retencion" store:Type="Tables" />
+    <EntitySet Name="Tipos" EntityType="Self.Tipos" store:Type="Tables" />
+    <EntitySet Name="Venta" EntityType="Self.Venta" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

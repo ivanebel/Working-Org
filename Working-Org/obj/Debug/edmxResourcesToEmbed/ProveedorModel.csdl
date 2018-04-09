@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="proveedorModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Proveedor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CUIT" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TipoProveedor" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Telefono" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Observaciones" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="proveedorEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Proveedors" EntityType="Self.Proveedor" />
+    <EntitySet Name="Clientes" EntityType="proveedorModel.Cliente" />
+    <EntitySet Name="Lotes" EntityType="proveedorModel.Lote" />
+    <EntitySet Name="MovimientoProductoes" EntityType="proveedorModel.MovimientoProducto" />
+    <EntitySet Name="Pedidoes" EntityType="proveedorModel.Pedido" />
+    <EntitySet Name="PrecioProductoes" EntityType="proveedorModel.PrecioProducto" />
+    <EntitySet Name="ProduccionDiarias" EntityType="proveedorModel.ProduccionDiaria" />
+    <EntitySet Name="Ventas" EntityType="proveedorModel.Venta" />
+    <EntitySet Name="Cheques" EntityType="proveedorModel.Cheque" />
+    <EntitySet Name="Cobranzas" EntityType="proveedorModel.Cobranza" />
+    <EntitySet Name="LineaCobranzas" EntityType="proveedorModel.LineaCobranza" />
+    <EntitySet Name="LineaVentas" EntityType="proveedorModel.LineaVenta" />
+    <EntitySet Name="ProductoProveedors" EntityType="proveedorModel.ProductoProveedor" />
+    <EntitySet Name="DetalleListaFabricacions" EntityType="proveedorModel.DetalleListaFabricacion" />
+    <EntitySet Name="Facturas" EntityType="proveedorModel.Factura" />
+    <EntitySet Name="LineaFacturas" EntityType="proveedorModel.LineaFactura" />
+    <EntitySet Name="LineaOrdenDeCompras" EntityType="proveedorModel.LineaOrdenDeCompra" />
+    <EntitySet Name="ListaFabricacions" EntityType="proveedorModel.ListaFabricacion" />
+    <EntitySet Name="OrdenDeCompras" EntityType="proveedorModel.OrdenDeCompra" />
+    <EntitySet Name="Remitoes" EntityType="proveedorModel.Remito" />
+    <EntitySet Name="LineaRemitoes" EntityType="proveedorModel.LineaRemito" />
+    <EntitySet Name="MovimientoProveedors" EntityType="proveedorModel.MovimientoProveedor" />
+    <EntitySet Name="Retencions" EntityType="proveedorModel.Retencion" />
+    <EntitySet Name="MovimientoClientes" EntityType="proveedorModel.MovimientoCliente" />
+    <EntitySet Name="Tipos" EntityType="proveedorModel.Tipos" />
+    <EntitySet Name="LineaPedidoes" EntityType="proveedorModel.LineaPedido" />
+    <EntitySet Name="Productoes" EntityType="proveedorModel.Producto" />
+  </EntityContainer>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="CUIT" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="TipoCliente" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Telefono" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Observaciones" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Lote">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="IdProducto" Type="Int64" Nullable="false" />
+    <Property Name="Fecha" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="FechaElaboracion" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="FechaVencimiento" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="NumeroLote" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Cantidad" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="Observaciones" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MovimientoProducto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="IdProducto" Type="Int64" Nullable="false" />
+    <Property Name="TipoMovimiento" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Cantidad" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="Fecha" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Stock" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="Observaciones" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Pedido">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="IdCliente" Type="Int64" Nullable="false" />
+    <Property Name="OC" Type="Int64" Nullable="false" />
+    <Property Name="CD" Type="Int64" Nullable="false" />
+    <Property Name="FechaEmision" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="FechaEntrega" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="HoraEntrega" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="MuelleEntrega" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Reprogramaciones" Type="Int64" Nullable="false" />
+    <Property Name="Estado" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Observaciones" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Total" Type="Decimal" Precision="53" Scale="0" />
+    <Property Name="Pendiente" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+  </EntityType>
+  <EntityType Name="PrecioProducto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="IdProducto" Type="Int64" Nullable="false" />
+    <Property Name="IdProveedor" Type="Int64" Nullable="false" />
+    <Property Name="Fecha" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Precio" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="Iva" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="PrecioTotal" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="Observaciones" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ProduccionDiaria">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="IdProducto" Type="Int64" Nullable="false" />
+    <Property Name="FechaProduccion" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Cantidad" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="FechaElaboracion" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="FechaVencimiento" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="NumeroLote" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Observaciones" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Ubicacion" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Venta">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="IdCliente" Type="Int64" Nullable="false" />
+    <Property Name="Fecha" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Documento" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="DocumentoNro" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="IdPedido" Type="Int64" Nullable="false" />
+    <Property Name="Monto" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="MontoTotal" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="Estado" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Cheque">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Numero" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Banco" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Tipo" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="FechaEmision" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCobro" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="IdCliente" Type="Int64" Nullable="false" />
+    <Property Name="Monto" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="Ubicacion" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Observaciones" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Cobranza">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="IdCliente" Type="Int64" Nullable="false" />
+    <Property Name="TipoDocumento" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="NroDocumento" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Monto" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="Fecha" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="LineaCobranza">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="IdCobranza" Type="Int64" Nullable="false" />
+    <Property Name="TipoDocumento" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="NroDocumento" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Detalle" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Monto" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="Iva" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="IvaTotal" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="Total" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+  </EntityType>
+  <EntityType Name="LineaVenta">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="IdVenta" Type="Int64" Nullable="false" />
+    <Property Name="IdProducto" Type="Int64" Nullable="false" />
+    <Property Name="Cantidad" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="PrecioUnitario" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="Iva" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="MontoIva" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="Subtotal" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+  </EntityType>
+  <EntityType Name="ProductoProveedor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="IdProducto" Type="Int64" Nullable="false" />
+    <Property Name="IdProveedor" Type="Int64" Nullable="false" />
+    <Property Name="DemoraPromedio" Type="Int64" Nullable="false" />
+    <Property Name="Observaciones" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DetalleListaFabricacion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="IdListaFabricacion" Type="Int64" Nullable="false" />
+    <Property Name="IdProducto" Type="Int64" Nullable="false" />
+    <Property Name="Cantidad" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="Error" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="Observaciones" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Factura">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="CompraVenta" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="IdEmisor" Type="Int64" Nullable="false" />
+    <Property Name="IdDestinatario" Type="Int64" Nullable="false" />
+    <Property Name="FechaEmision" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="FechaVencimiento" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Numero" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="ImporteNeto" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="ImporteTotal" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="Estado" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Observaciones" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Iva" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+  </EntityType>
+  <EntityType Name="LineaFactura">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="IdFactura" Type="Int64" Nullable="false" />
+    <Property Name="IdProducto" Type="Int64" Nullable="false" />
+    <Property Name="Cantidad" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="PrecioUnitario" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="Subtotal" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="AlicuotaIva" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="Total" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="Estado" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Iva" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+  </EntityType>
+  <EntityType Name="LineaOrdenDeCompra">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="IdOrden" Type="Int64" Nullable="false" />
+    <Property Name="IdProducto" Type="Int64" Nullable="false" />
+    <Property Name="CantidadPedida" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="CantidadEntregada" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="Estado" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Observaciones" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ListaFabricacion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="IdProducto" Type="Int64" Nullable="false" />
+    <Property Name="Fecha" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Estado" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Observaciones" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="IdMateriaPrima" Type="Int64" />
+  </EntityType>
+  <EntityType Name="OrdenDeCompra">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="IdProveedor" Type="Int64" Nullable="false" />
+    <Property Name="IdPresupuesto" Type="Int64" Nullable="false" />
+    <Property Name="FechaCreacion" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="FechaEntrega" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Estado" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Observaciones" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Remito">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="EmisionRecepcion" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="IdEmisor" Type="Int64" Nullable="false" />
+    <Property Name="IdDestinatario" Type="Int64" Nullable="false" />
+    <Property Name="FechaEmision" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="FechaEntrega" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Numero" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Estado" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Observaciones" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="LineaRemito">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="IdRemito" Type="Int64" Nullable="false" />
+    <Property Name="IdProducto" Type="Int64" Nullable="false" />
+    <Property Name="Cantidad" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="Estado" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MovimientoProveedor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="IdProveedor" Type="Int64" Nullable="false" />
+    <Property Name="CreditoDebito" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Fecha" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="TipoDocumento" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="NumDocumento" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Monto" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="Observaciones" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Retencion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Tipo" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="NumDocumento" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Base" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="Alicuota" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="Total" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="Fecha" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="IdCobranza" Type="Int64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MovimientoCliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="IdCliente" Type="Int64" Nullable="false" />
+    <Property Name="CreditoDebito" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Fecha" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="TipoDocumento" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="NumDocumento" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Monto" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="Observaciones" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Tipos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Clasificacion" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Detalle" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="LineaPedido">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="IdPedido" Type="Int64" Nullable="false" />
+    <Property Name="IdProducto" Type="Int64" Nullable="false" />
+    <Property Name="Cantidad" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="Pendiente" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="Otro" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="UnidadDeMedida" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="TipoProducto" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="Ean13" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="VidaUtil" Type="Int64" Nullable="false" />
+    <Property Name="PesoBruto" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="PesoNeto" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="UnidadesBulto" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="PesoBulto" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="StockMinimo" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="StockMaximo" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+    <Property Name="StockOptimo" Type="Decimal" Nullable="false" Precision="53" Scale="0" />
+  </EntityType>
+</Schema>

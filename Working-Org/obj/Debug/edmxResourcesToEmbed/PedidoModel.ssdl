@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="pedidoModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=&quot;C:\Users\Ivan\Google Drive\Working\db\working-base.db&quot;" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="CUIT" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="TipoCliente" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Telefono" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Observaciones" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LineaPedido">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="IdPedido" Type="integer" Nullable="false" />
+    <Property Name="IdProducto" Type="integer" Nullable="false" />
+    <Property Name="BultosPedidos" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="UnidadesPedidas" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="KilosPedidos" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="BultosEntregados" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="UnidadesEntregadas" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="KilosEntregados" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Observaciones" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MovimientoProducto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="IdProducto" Type="integer" Nullable="false" />
+    <Property Name="TipoMovimiento" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Cantidad" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Fecha" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Stock" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Observaciones" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pedido">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="IdCliente" Type="integer" Nullable="false" />
+    <Property Name="OC" Type="integer" Nullable="false" />
+    <Property Name="CD" Type="integer" Nullable="false" />
+    <Property Name="FechaEmision" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="FechaEntrega" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="HoraEntrega" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="MuelleEntrega" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Reprogramaciones" Type="integer" Nullable="false" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Observaciones" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="integer" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Descripción" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="UnidadDeMedida" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="StockMin" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="StockMax" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="TIpoProducto" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Presentacion" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Observaciones" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="pedidoModelStoreContainer">
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" store:Type="Tables" />
+    <EntitySet Name="LineaPedido" EntityType="Self.LineaPedido" store:Type="Tables" />
+    <EntitySet Name="MovimientoProducto" EntityType="Self.MovimientoProducto" store:Type="Tables" />
+    <EntitySet Name="Pedido" EntityType="Self.Pedido" store:Type="Tables" />
+    <EntitySet Name="Producto" EntityType="Self.Producto" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

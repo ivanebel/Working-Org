@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="pedidoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CUIT" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TipoCliente" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Telefono" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Observaciones" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LineaPedido">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="IdPedido" Type="Int64" Nullable="false" />
+    <Property Name="IdProducto" Type="Int64" Nullable="false" />
+    <Property Name="BultosPedidos" Type="Decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="UnidadesPedidas" Type="Decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="KilosPedidos" Type="Decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="BultosEntregados" Type="Decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="UnidadesEntregadas" Type="Decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="KilosEntregados" Type="Decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Observaciones" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MovimientoProducto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="IdProducto" Type="Int64" Nullable="false" />
+    <Property Name="TipoMovimiento" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Cantidad" Type="Decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Fecha" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Stock" Type="Decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="Observaciones" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pedido">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="IdCliente" Type="Int64" Nullable="false" />
+    <Property Name="OC" Type="Int64" Nullable="false" />
+    <Property Name="CD" Type="Int64" Nullable="false" />
+    <Property Name="FechaEmision" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FechaEntrega" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HoraEntrega" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MuelleEntrega" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Reprogramaciones" Type="Int64" Nullable="false" />
+    <Property Name="Estado" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Observaciones" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Descripción" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UnidadDeMedida" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="StockMin" Type="Decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="StockMax" Type="Decimal" Precision="53" Scale="0" Nullable="false" />
+    <Property Name="TIpoProducto" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Presentacion" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Observaciones" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="pedidoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Clientes" EntityType="Self.Cliente" />
+    <EntitySet Name="LineaPedidoes" EntityType="Self.LineaPedido" />
+    <EntitySet Name="MovimientoProductoes" EntityType="Self.MovimientoProducto" />
+    <EntitySet Name="Pedidoes" EntityType="Self.Pedido" />
+    <EntitySet Name="Productoes" EntityType="Self.Producto" />
+  </EntityContainer>
+</Schema>
